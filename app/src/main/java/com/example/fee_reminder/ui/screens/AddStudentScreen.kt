@@ -15,6 +15,8 @@ import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,7 +28,12 @@ fun AddStudentScreen() {
     val viewModel: StudentViewModel = viewModel(
         factory = StudentViewModelFactory(application)
     )
-
+    var collectionDate by remember {
+        mutableStateOf("")
+    }
+    var admissionDate by remember {
+        mutableStateOf("")
+    }
     var name by remember { mutableStateOf("") }
     var className by remember { mutableStateOf("") }
     var batchTiming by remember { mutableStateOf("") }
@@ -154,6 +161,26 @@ fun AddStudentScreen() {
             label = { Text("Monthly Fee") },
             modifier = Modifier.fillMaxWidth()
         )
+        OutlinedTextField(
+            value = collectionDate,
+            onValueChange = {
+                collectionDate = it
+            },
+            label = {
+                Text("Collection Date")
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+        OutlinedTextField(
+            value = admissionDate,
+            onValueChange = {
+                admissionDate = it
+            },
+            label = {
+                Text("Admission Date")
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
 
         Spacer(modifier = Modifier.height(12.dp))
 
@@ -181,14 +208,28 @@ fun AddStudentScreen() {
                     return@Button
                 }
 
+                val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+                val dueDateMillis = try {
+                    formatter.parse(nextDueDate)?.time
+                } catch (e: Exception) {
+                    null
+                }
+
+                if (dueDateMillis == null) {
+                    return@Button
+                }
+
                 val student = Student(
                     name = name,
                     className = className,
                     batchTiming = batchTiming,
                     phone = phone,
                     monthlyFee = monthlyFee.toInt(),
+                    collectionDate = collectionDate,
+                    admissionDate = admissionDate,
                     lastPaidDate = 0L,
-                    nextDueDate = System.currentTimeMillis(),
+                    nextDueDate = dueDateMillis,
                     feePaid = false
                 )
 
@@ -199,6 +240,9 @@ fun AddStudentScreen() {
                 batchTiming = ""
                 phone = ""
                 monthlyFee = ""
+                collectionDate = ""
+                admissionDate = ""
+
                 nextDueDate = ""
 
             },

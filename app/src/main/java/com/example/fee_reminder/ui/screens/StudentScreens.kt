@@ -221,6 +221,14 @@ fun StudentsScreen(
 
                         Text("Monthly Fee : ₹${student.monthlyFee}")
 
+
+                        Text(
+                            text = if (student.collectionDate.isBlank())
+                                "Collection : --"
+                            else
+                                "Collection : ${student.collectionDate}"
+                        )
+
                         Spacer(modifier = Modifier.height(6.dp))
 
                         Text(

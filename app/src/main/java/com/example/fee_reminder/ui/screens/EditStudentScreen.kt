@@ -39,6 +39,9 @@ fun EditStudentScreen(
     var batch by remember { mutableStateOf(student!!.batchTiming) }
     var phone by remember { mutableStateOf(student!!.phone) }
     var fee by remember { mutableStateOf(student!!.monthlyFee.toString()) }
+    var collectionDate by remember {
+        mutableStateOf("")
+    }
 
     Column(
         modifier = Modifier
@@ -98,6 +101,17 @@ fun EditStudentScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
+        OutlinedTextField(
+            value = collectionDate,
+            onValueChange = {
+                collectionDate = it
+            },
+            label = {
+                Text("Collection Date")
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
         Button(
             modifier = Modifier.fillMaxWidth(),
             onClick = {
@@ -110,6 +124,7 @@ fun EditStudentScreen(
                     batchTiming = batch,
                     phone = phone,
                     monthlyFee = fee.toInt(),
+                    collectionDate = collectionDate,
                     lastPaidDate = student!!.lastPaidDate,
                     nextDueDate = student!!.nextDueDate
                 )

@@ -18,10 +18,12 @@ data class Student(
     val phone: String,
 
     val monthlyFee: Int,
+    val collectionDate: String = "",
 
     val lastPaidDate: Long,
 
     val nextDueDate: Long,
 
-    val feePaid: Boolean
+    val feePaid: Boolean,
+    val admissionDate: String = ""
 )
