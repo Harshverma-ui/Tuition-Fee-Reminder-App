@@ -242,12 +242,24 @@ The app automatically checks students whose fees are due and sends notifications
 ## Screens
 
 - Dashboard
-- Students
-- Student Details
-- Add Student
-- Edit Student
-- Settings
+<img width="358" height="802" alt="Screenshot 2026-07-23 192835" src="https://github.com/user-attachments/assets/d14f8688-e3ad-4447-8347-abf48d88377e" />
 
+- Students
+<img width="357" height="798" alt="Screenshot 2026-07-23 192848" src="https://github.com/user-attachments/assets/0e71c257-b5c8-4a00-899e-fb52dd3beb8d" />
+
+- Student Details
+<img width="357" height="803" alt="Screenshot 2026-07-23 192900" src="https://github.com/user-attachments/assets/60ba69ff-2ede-4cb3-8046-159c52b70155" />
+
+- Add Student
+<img width="357" height="800" alt="Screenshot 2026-07-23 192951" src="https://github.com/user-attachments/assets/f8a2c6e8-994c-4e9a-8c86-627b8d39000a" />
+
+- Edit Student
+<img width="360" height="800" alt="Screenshot 2026-07-23 192913" src="https://github.com/user-attachments/assets/97a9d8f5-428f-4537-92c6-f3c8c36842c5" />
+
+- Settings
+<img width="357" height="800" alt="Screenshot 2026-07-23 192938" src="https://github.com/user-attachments/assets/a0ae445f-02e7-4078-99ca-adc4628def10" />
+
+- Video Sample 
 ---
 
 ## Future Improvements
